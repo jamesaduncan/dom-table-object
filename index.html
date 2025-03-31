@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TableQuery example</title>
+        <script type="module" src="https://jamesaduncan.github.io/link-include/index.mjs"></script>    
+        <script type="module" src="./vlookup.mjs"></script>
+    </head>
+    <body>
+        <link rel="include" destination="template#dialcodes" href="./country_dialing_codes.html" select="table">
+        <h1>TableQuery Example</h1>
+        <input type="text" vlookup="template#dialcodes" vlookup-query-index="0">
+        <p>
+            The country code for <span vlookup="template#dialcodes" vlookup-query-index="0"></span> is <span vlookup="template#dialcodes" vlookup-query-index="1"></span>
+        </p>        
+        <template id="dialcodes">
+        </template>      
+    </body>
+</html>
