@@ -21,12 +21,11 @@ class TableQuery {
         const finalQuery = `${xpathExpression}/${resultExpressionComponents.join("/")}/text()`;
         
         const response = document.evaluate(finalQuery, this.root, null, 2, null);
-        const responseString = response.stringValue;//.trim().replace(/(\r\n|\n|\r)/gm, "");
-        console.log( aString, finalQuery, response );
+        const responseString = response.stringValue;
         if (!normalize) return responseString;
         
         const normalized = document.evaluate(`${xpathExpression}/text()`, this.root, null, 2, null);
-        const normalizedString = normalized.stringValue;//.trim().replace(/(\r\n|\n|\r)/gm, "");
+        const normalizedString = normalized.stringValue;
         return [normalizedString, responseString]
     }
 }
